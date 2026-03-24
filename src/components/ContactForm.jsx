@@ -16,13 +16,14 @@ function ContactForm() {
                 form,
                 {
                     headers: {
-                        "Content-Type": "application/json"
-                    }
+                        "Content-Type": "application/json",
+                    },
+                    withCredentials: false, // make sure this is false
                 }
             )
             alert("Message Sent Successfully")
         } catch (err) {
-            console.log(err)
+            console.log(err.response?.data || err.message)
             alert("Server error")
         }
     }
